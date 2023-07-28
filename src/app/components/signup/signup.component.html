@@ -1,0 +1,68 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h1 class="pt-3 font-weight-bold">Sign Up</h1>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" formControlName="firstname" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')"
+                                class="text-danger">First Name is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" formControlName="lastname" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')"
+                                class="text-danger">Last Name is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-envelope p-2"></span>
+                                    <input type="text" formControlName="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')"
+                                class="text-danger">Email is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user-circle-o p-2"></span>
+                                    <input type="text" formControlName="username" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')"
+                                class="text-danger">Username is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock px-2"></span>
+                                    <input [type]="type" formControlName="password" placeholder="Password">
+                                    <button type="button" (click)="hideShowPass()" class="bg-white text-muted">
+                                        <span class="fa {{eyeIcon}}"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')"
+                                class="text-danger">Password is required</small>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
+                            <div class="text-center pt-4 text-muted">Already have an account?
+                                <a id="forgot" href="#" routerLink="/login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
